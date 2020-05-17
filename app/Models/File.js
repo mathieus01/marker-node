@@ -1,0 +1,20 @@
+"use strict";
+
+const Model = use("Model");
+const Env = use("Env");
+
+class File extends Model {
+  static get computed() {
+    return ["url"];
+  }
+
+  surgery() {
+    return this.belongsTo("App/Models/Surgery");
+  }
+
+  getUrl({ id }) {
+    return `${Env.get("APP_URL")}/files/${id}`;
+  }
+}
+
+module.exports = File;
