@@ -1,8 +1,8 @@
 {
-  "name": "adonis-api-app",
+  "name": "markeer-service",
   "version": "4.1.0",
   "adonis-version": "4.1.0",
-  "description": "Adonisjs boilerplate for API server with pre-configured JWT",
+  "description": "",
   "main": "index.js",
   "scripts": {
     "start": "adonis serve --dev",
