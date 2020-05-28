@@ -7,7 +7,8 @@
   "scripts": {
     "start": "adonis serve --dev",
     "debug": "adonis serve --dev --debug",
-    "test": "adonis test"
+    "test": "adonis test",
+    "clean-cache": "rm -rf node_modules/ package-lock.json && npm cache clean -f && npm i"
   },
   "keywords": [
     "adonisjs",
@@ -35,7 +36,8 @@
     "adonis-sentry": "^2.0.2",
     "moment": "^2.24.0",
     "nodemon": "^2.0.2",
-    "pg": "^7.17.1"
+    "pg": "^7.17.1",
+    "youch": "^2.0.10"
   },
   "devDependencies": {
     "sqlite3": "^4.1.1"
