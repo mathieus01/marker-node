@@ -35,9 +35,8 @@ class SessionController {
         true
       );
     } catch (err) {
-      return { err: 'Usuario ou Senha Incorreta' };
+      return response.status(401).send({ err: 'Usuario ou Senha Incorreta' });
     }
-    return isValid;
   }
 }
 
