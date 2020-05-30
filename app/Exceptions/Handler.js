@@ -22,7 +22,7 @@ class ExceptionHandler extends BaseExceptionHandler {
     //   return response.status(error.status).send(errorJson);
     // }
 
-    return response.send(error.status);
+    return response.status(error.status).send({ err: error.messages });
   }
 
   async report(error, { request }) {}
