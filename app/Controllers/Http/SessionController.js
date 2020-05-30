@@ -16,7 +16,6 @@ class SessionController {
       return response.status(403).send({
         error: {
           message: 'Conta Inativa, por favor ative sua conta',
-          token: user.token,
         },
       });
     }
@@ -35,7 +34,11 @@ class SessionController {
         true
       );
     } catch (err) {
-      return response.status(401).send({ err: 'Usuario ou Senha Incorreta' });
+      return response.status(401).send({
+        error: {
+          message: 'Usuario ou Senha Incorreta',
+        },
+      });
     }
   }
 }
