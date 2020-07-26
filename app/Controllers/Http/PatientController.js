@@ -12,7 +12,7 @@ class PatientController {
   }
 
   async update({ params, request, response }) {
-    const data = request.only(['name', 'birthday', 'phone', 'group_id', 'gender']);
+    const data = request.all();
 
     const patient = await Patient.findBy({
       id: params.id,
