@@ -10,15 +10,18 @@ class ProcedureController {
   }
 
   async index({ request }) {
-    const { code, name } = request.get();
-    let query = Procedure.query();
+    const { name } = request.get();
 
-    if (!!code) {
-      query = query.where({ code });
-    }
+    const code = parseInt(name);
+
+    let query = Procedure.query();
 
     if (!!name) {
       query = query.where('name', 'like', `%${name}%`);
+    }
+
+    if (!!name && !isNaN(code)) {
+      query = query.orWhere('code', code);
     }
 
     const procedures = await query.fetch();
