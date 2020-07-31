@@ -52,15 +52,18 @@ class SurgeryController {
   }
 
   async index({ request, response, params }) {
-    const { page, patient } = request.get();
+    const { page, patient, dtSurgery } = request.get();
 
-    const surgeries = await Surgery.query()
-      .with('procedures')
-      .where({
-        patient_id: patient,
-      })
-      .orderBy('id', 'desc')
-      .paginate(page);
+    let filter = {};
+
+    if (patient) {
+      filter = { ...filter, patient_id: patient };
+    }
+
+    if (dtSurgery) {
+      filter = { ...filter, date: new Date(new Date(dtSurgery).toDateString()) };
+    }
+    const surgeries = await Surgery.query().with('procedures').where(filter).orderBy('id', 'desc').paginate(page);
 
     return surgeries;
   }
