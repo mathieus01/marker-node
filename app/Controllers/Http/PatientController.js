@@ -47,6 +47,7 @@ class PatientController {
       .innerJoin('groups', 'patients.group_id', 'groups.id')
       .innerJoin('user_group', 'groups.id', 'user_group.group_id')
       .where('user_group.user_id', id)
+      .orderBy('created_at', 'desc')
       .with('group')
       .paginate(page, 20);
 

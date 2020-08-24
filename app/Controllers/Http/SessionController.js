@@ -30,6 +30,7 @@ class SessionController {
           email: user.email,
           gender: user.gender,
           birthday: user.birthday,
+          avatar: user.avatar,
         },
         true
       );
